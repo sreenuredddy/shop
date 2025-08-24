@@ -1,32 +1,31 @@
-name: Run Streamlit Tasks
+name: Streamlit NSE Dashboard
 
 on:
   push:
     branches:
       - main
-  workflow_dispatch:  # Allows manual trigger
+  workflow_dispatch:
 
 jobs:
-  run-app:
+  run-dashboard:
     runs-on: ubuntu-latest
-
     env:
-      APPIDKEY: ${{ secrets.APPIDKEY }}  # Your secret
+      APPIDKEY: ${{ secrets.APPIDKEY }}
 
     steps:
-      - name: Checkout Repo
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Set up Python
+      - name: Setup Python
         uses: actions/setup-python@v4
         with:
-          python-version: "3.11"
+          python-version: 3.11
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run Streamlit Script
+      - name: Run Streamlit App
         run: |
-          python shop.py  # or any script that uses the secret
+          streamlit run shop.py --server.port 8501 --server.headless true
