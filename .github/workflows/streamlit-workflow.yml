@@ -22,7 +22,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
-          python-version: 3.11
+          python-version: 3.13
 
       - name: Install dependencies
         run: |
@@ -31,4 +31,4 @@ jobs:
 
       - name: Run Streamlit App
         run: |
-          streamlit run shop.py --server.port 8501 --server.headless true
+          streamlit run shop.py
