@@ -31,4 +31,5 @@ jobs:
 
       - name: Deploy Streamlit App
         run: |
-          streamlit run shop.py --headless true --server.port 8501
+          streamlit run shop.py --server.headless true --server.port 8501 --server.address 0.0.0.0
+
