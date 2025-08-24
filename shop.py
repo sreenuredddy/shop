@@ -176,7 +176,7 @@ tickers = df["symbol"].tolist()
 
 # API headers
 headers = {
-    "Appidkey": os.environ.get("APPIDKEY"),
+    "Appidkey": st.secrets["APPIDKEY"],
     "Source": "EDEL",
 }
 
